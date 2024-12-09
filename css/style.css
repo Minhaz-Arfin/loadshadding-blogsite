@@ -1,25 +1,160 @@
-
-body {
-  background: #151618;
-  color: #FFF;
+/* Reset styles */
+body, html {
   margin: 0;
-}
-
-.overlay {
-  pointer-events: none;
-  position: absolute;
-  height: 100%;
+  padding: 0;
   width: 100%;
-  left: 0;
-  top: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #fff; /* Default text color to contrast with the dark background */
 }
 
+/* Full-page background image */
+body {
+  background: url('../images/background.jpg') no-repeat center center fixed; /* Adjusted path for the image */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-attachment: fixed; /* Keeps the image fixed during scroll */
+}
+
+/* Global content styles */
 .container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Translucent dark background for better readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
-.hide {
-  opacity: 0;
+/* Headings */
+h1, h2, h3 {
+  margin: 0 0 20px;
+  color: #ffdd57; /* Highlighted heading color */
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Table styles (used in admin_dashboard.php) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  color: #fff;
+}
+
+table th {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+form input[type="text"], form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000;
+}
+
+/* Card styles (used in blog pages) */
+.card {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2); /* Translucent white */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ffdd57;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007BFF;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pagination a {
+  color: #007BFF;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+      width: 95%;
+  }
+
+  form input[type="text"], form textarea {
+      font-size: 0.9rem;
+  }
+
+  button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+  }
 }

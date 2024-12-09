@@ -43,26 +43,31 @@ $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+
+    body {
+        background: url('images/background.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7); /* Translucent black background */
+            color: #fff;
             padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h2 {
-            text-align: center;
-        }
-        form {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
         table {
             width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for table */
+            border-collapse: collapse;
         }
         table th, table td {
             border: 1px solid #ddd;
@@ -73,8 +78,8 @@ $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background-color: #f8f8f8;
         }
         a {
-            text-decoration: none;
             color: #007BFF;
+            text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
@@ -93,38 +98,40 @@ $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-    <h2>Admin Dashboard</h2>
+    <div class="form-container">
+        <h2>Admin Dashboard</h2>
 
-    <!-- Blog Creation Form -->
-    <form method="POST">
-        <h3>Create a New Blog</h3>
-        <input type="text" name="title" placeholder="Blog Title" required>
-        <textarea name="content" placeholder="Blog Content" rows="5" required></textarea>
-        <button type="submit" name="create">Post Blog</button>
-    </form>
+        <!-- Blog Creation Form -->
+        <form method="POST">
+            <h3>Create a New Blog</h3>
+            <input type="text" name="title" placeholder="Blog Title" required>
+            <textarea name="content" placeholder="Blog Content" rows="5" required></textarea>
+            <button type="submit" name="create">Post Blog</button>
+        </form>
 
-    <!-- Blog List -->
-    <h3>Manage Existing Blogs</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($blogs as $blog): ?>
+        <!-- Blog List -->
+        <h3>Manage Existing Blogs</h3>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo htmlspecialchars($blog['id']); ?></td>
-                    <td><?php echo htmlspecialchars($blog['title']); ?></td>
-                    <td>
-                        <a href="edit_blog.php?id=<?php echo $blog['id']; ?>">Edit</a> |
-                        <a href="admin_dashboard.php?delete_id=<?php echo $blog['id']; ?>" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Actions</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($blogs as $blog): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($blog['id']); ?></td>
+                        <td><?php echo htmlspecialchars($blog['title']); ?></td>
+                        <td>
+                            <a href="edit_blog.php?id=<?php echo $blog['id']; ?>">Edit</a> |
+                            <a href="admin_dashboard.php?delete_id=<?php echo $blog['id']; ?>" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

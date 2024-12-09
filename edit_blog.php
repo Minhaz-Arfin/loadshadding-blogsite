@@ -41,6 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+<style>
+    body {
+        background: url('images/background.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+
 </head>
 
 <body>
